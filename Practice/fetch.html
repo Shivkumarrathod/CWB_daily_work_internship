@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fetch Example</title>
+  <style>
+    #detailDiv {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 1rem;
+      justify-items: center;
+    }
+
+    ul {
+      border: 2px solid red;
+      border-radius: 8px;
+      padding: 1rem;
+      width: 100%;
+      max-width: 250px;
+      list-style: none;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .even {
+      background-color: #f0f8ff; /* Light blue */
+    }
+
+    .odd {
+      background-color: #ffe4e1; /* Light pink */
+    }
+  </style>
+</head>
+<body>
+  <div id="detailDiv">Loading...</div>
+
+  <script>
+    const detailDiv = document.getElementById("detailDiv");
+
+    fetch("https://jsonplaceholder.typicode.com/todos")
+      .then((res) => res.json())
+      .then((datas) => {
+        let html = "";
+        datas.forEach((data, index) => {
+          const bgClass = index % 2 === 0 ? "even" : "odd";
+          html += `
+            <ul class="${bgClass}">
+              <li><strong>id:</strong> ${data.id}</li>
+              <li><strong>title:</strong> ${data.title}</li>
+              <li><strong>completed:</strong> ${data.completed}</li>
+            </ul>
+          `;
+        });
+        detailDiv.innerHTML = html;
+      })
+      .catch((err) => {
+        console.error("Fetch error:", err);
+        detailDiv.innerHTML = `<h1 style="color:red">No data found</h1>`;
+      });
+  </script>
+</body>
+</html>

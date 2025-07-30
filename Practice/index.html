@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dark Mode Toggle</title>
+  <style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    body.dark {
+      background-color: black;
+      color: white;
+    }
+
+    body.light {
+      background-color: white;
+      color: black;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      margin: 20px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+      border-color: white;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: black;
+      transition: 0.4s;
+      border-radius: 50%;
+      border-color: white;
+
+    }
+
+    input:checked + .slider {
+      background-color: rgb(144, 144, 144);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+
+    h1 {
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body class="light">
+  
+
+  <h1>Welcome to my website</h1>
+  <label class="switch">
+    <input type="checkbox" id="toggleSwitch" onclick="toggle()" />
+    <span class="slider"></span>
+  </label>
+
+  
+  <script>
+    let flag = true;
+
+    function toggle() {
+      const bodyTag = document.body;
+      flag = !flag;
+      if (flag) {
+        bodyTag.className = "light";
+      } else {
+        bodyTag.className = "dark";
+      }
+    }
+  </script>
+</body>
+</html>

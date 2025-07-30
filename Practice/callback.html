@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function checkEvenOdd(n){
+            return new Promise((res,rej)=>n%2==0?res("is even"):rej("is Odd"))
+        }
+        checkEvenOdd(4)
+          .then((data)=>console.log(data))
+          .catch(err=>console.log(err))
+        checkEvenOdd(3)
+          .then((data)=>console.log(data))
+          .catch(err=>console.log(err))
+    </script>
+</body>
+</html>
