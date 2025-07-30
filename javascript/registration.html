@@ -1,0 +1,225 @@
+<!-- add qualiication and other fields with validation -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form with Validation</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+        }
+        form {
+            max-width: 500px;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 7px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+<form id="registrationForm" onsubmit="return validateForm()">
+    <div class="form-group">
+        <label>Full Name:</label>
+        <input type="text" id="fullName" />
+        <div class="error" id="nameError"></div>
+    </div>
+
+    <div class="form-group">
+        <label>Email:</label>
+        <input type="email" id="email" />
+        <div class="error" id="emailError"></div>
+    </div>
+
+    <div class="form-group">
+        <label>Mobile Number:</label>
+        <input type="text" id="mobile" />
+        <div class="error" id="mobileError"></div>
+    </div>
+
+    <div class="form-group">
+        <label>Password:</label>
+        <input type="password" id="password" />
+        <div class="error" id="passwordError"></div>
+    </div>
+    <div class="form-group">
+        <label>Confirm Password:</label>
+        <input type="password" id="cpassword" />
+        <div class="error" id="cpasswordError"></div>
+    </div>
+    <div value="form-group">
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob"/>
+        <div class="error" id="dobError"></div>
+    </div>
+    <div class="form-group">
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male" /> Male
+        <input type="radio" name="gender" value="Female" /> Female
+        <div class="error" id="genderError"></div>
+    </div>
+    <div class="form-group">
+        <label for="address">Address:</label>
+        <input type="text" id="address"/>
+        <div class="error" id="addressError"></div>
+    </div>
+    <div class="form-group">
+        <label>Country:</label>
+        <select id="country">
+            <option value="">--Select--</option>
+            <option value="IN">India</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+        </select>
+        <div class="error" id="countryError"></div>
+    </div>
+    <div class="form-group">
+        <label for="qualification">Select Qualification:</label>
+        <select id="qualification">
+            <option value="">Select</option>
+            <option value="High School">High School</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Graduate">Graduate</option>
+            <option value="Post Graduate">Post Graduate</option>
+        </select>
+        <div class="error" id="qualificationError"></div>
+    </div>
+    <div class="form-group">
+        <label>Hobbies:</label>
+        <input type="checkbox" name="hobbies" value="Reading" /> Reading
+        <input type="checkbox" name="hobbies" value="Traveling" /> Traveling
+        <input type="checkbox" name="hobbies" value="Sports" /> Sports
+        <input type="checkbox" name="hobbies" value="Music" /> Music
+        <div class="error" id="hobbiesError"></div>
+    </div>
+
+    <div class="form-group">
+        <label>
+            <input type="checkbox" id="terms" /> I accept the Terms and Conditions
+        </label>
+        <div class="error" id="termsError"></div>
+    </div>
+
+    <button type="submit">Register</button>
+</form>
+
+<script>
+function validateForm() {
+    // Clear previous errors
+    document.getElementById("nameError").innerText = "";
+    document.getElementById("emailError").innerText = "";
+    document.getElementById("mobileError").innerText = "";
+    document.getElementById("passwordError").innerText = "";
+    document.getElementById("genderError").innerText = "";
+    document.getElementById("countryError").innerText = "";
+    document.getElementById("hobbiesError").innerText = "";
+    document.getElementById("termsError").innerText = "";
+    document.getElementById("addressError").innerText = "";
+    document.getElementById("qualificationError").innerText = "";
+    document.getElementById("dobError").innerText = "";
+    document.getElementById("cpasswordError").innerText = "";
+
+    let valid = true;
+
+    // Name validation
+    const name = document.getElementById("fullName").value.trim();
+    if (name === "" || name.length<=5) {
+        document.getElementById("nameError").innerText = "Please enter your full name";
+        valid = false;
+    }
+
+    // ✅ Improved Email validation
+    const email = document.getElementById("email").value.trim();
+    const emailPattern = /^[a-zA-Z0-9._]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/;
+    if (!emailPattern.test(email)) {
+        document.getElementById("emailError").innerText = "Enter a valid email address";
+        valid = false;
+    }
+
+    // Mobile validation
+    const mobile = document.getElementById("mobile").value.trim();
+    const mobilePattern = /^[6-9]\d{9}$/;
+    if (!mobilePattern.test(mobile)) {
+        document.getElementById("mobileError").innerText = "Enter a valid 10-digit mobile number";
+        valid = false;
+    }
+
+    // Password validation
+    const password = document.getElementById("password").value;
+    if (password.length < 6) {
+        document.getElementById("passwordError").innerText = "Password must be at least 6 characters";
+        valid = false;
+    }
+    // Confirm Password validation
+    const cpassword = document.getElementById("cpassword").value;
+    if (cpassword.length < 6 || password!=cpassword) {
+        document.getElementById("cpasswordError").innerText = "Both Password must be same";
+        valid = false;
+    }
+    //dob validation
+    const dob = document.getElementById("dob").value;
+    if (!dob) {
+        document.getElementById("dobError").innerText = "Please select your date of birth";
+        valid = false;
+    }
+    // Gender validation
+    const gender = document.querySelector('input[name="gender"]:checked');
+    if (!gender) {
+        document.getElementById("genderError").innerText = "Please select your gender";
+        valid = false;
+    }
+    //address validation
+    const address = document.getElementById("address").value.trim();
+    if (address === "") {
+        document.getElementById("addressError").innerText = "Please enter complete address";
+        valid = false;
+    }
+    // Country validation
+    const country = document.getElementById("country").value;
+    if (country === "") {
+        document.getElementById("countryError").innerText = "Please select your country";
+        valid = false;
+    }
+    // Qualification validation
+    const qualification = document.getElementById("qualification").value;
+    if (qualification === "") {
+        document.getElementById("qualificationError").innerText = "Please select your qualification";
+         valid = false;
+    }
+    // Hobbies validation
+    const hobbies = document.querySelectorAll('input[name="hobbies"]:checked');
+    if (hobbies.length === 0) {
+        document.getElementById("hobbiesError").innerText = "Please select at least one hobby";
+        valid = false;
+    }
+
+    // Terms checkbox validation
+    const terms = document.getElementById("terms").checked;
+    if (!terms) {
+        document.getElementById("termsError").innerText = "You must accept the terms and conditions";
+        valid = false;
+    }
+
+    return valid;
+}
+</script>
+
+</body>
+</html>

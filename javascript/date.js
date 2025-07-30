@@ -1,0 +1,10 @@
+const time = new Date();
+console.log(time);
+let t = time.getTime();
+console.log(t);
+let hour = time.getHours();
+console.log(hour);
+let ms = Date.now();
+console.log(ms);
+let text = time.toTimeString();
+console.log(text);

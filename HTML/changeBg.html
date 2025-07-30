@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Change Background colour</title>
+    <style>
+        body {
+            transition: background-color 0.3s ease;
+            padding:20px;
+        }
+    </style>
+    <script>
+        function bgColourChange(){
+            const color = document.getElementById("bgColour").value;
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</head>
+<body>
+    <label for="bgColour">Choose a Background Colour:</label>
+    <select id="bgColour" onchange="bgColourChange()">
+        <option value="">Select Colour</option>
+        <option value="white">White</option>
+        <option value="lightblue">Light Blue</option>
+        <option value="lightgreen">Light Green</option>
+        <option value="lightcoral">Light Coral</option>
+        <option value="black">Black</option>
+    </select>
+</body>
+</html>

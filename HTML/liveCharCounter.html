@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Live Character Counter</title>
+    <script>
+        function countChar(){
+            var str = document.getElementById("characters").value.trim();
+            var num = str.length;
+            document.getElementById("count").innerText = "Character Count:"+num;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="characters" oninput="countChar()" placeholder ="Enter your characters here">
+    <p id="count">Character Count:0</p>
+</body>
+</html>

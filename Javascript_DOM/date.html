@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Date Validator</title>
+    <script>
+        function validateDate(){
+            var dd = 29;
+            var mm = 2;
+            var yyyy = 2024;
+
+            if (mm < 1 || mm > 12 || dd < 1 || dd > 31) {
+                return false;
+            }
+
+            // February
+            if (mm == 2) {
+                if ((yyyy % 4 === 0 && yyyy % 100 !== 0) || (yyyy % 400 === 0)) {
+                    return dd <= 29;
+                } else {
+                    return dd <= 28;
+                }
+            }
+
+            // Months with 31 days
+            if (mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12) {
+                return dd <= 31;
+            }
+
+            // Months with 30 days
+            if (mm == 4 || mm == 6 || mm == 9 || mm == 11) {
+                return dd <= 30;
+            }
+
+            return false;
+        }
+
+        function validate() {
+            var result = validateDate();
+            document.getElementById("output").innerText = result ? "Valid Date" : "Invalid Date";
+        }
+    </script>
+</head>
+<body>
+    <h2>Date Validation Result:</h2>
+    <button onclick="validate()">Validate</button>
+    <p id="output"></p>
+</body>
+</html>

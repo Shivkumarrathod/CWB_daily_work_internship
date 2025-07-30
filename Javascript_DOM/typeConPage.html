@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Type Conversion Page</title>
+    <script>
+        function changeType(){
+            var num = document.getElementById("num").value;
+            document.getElementById("typeinput").innerText = "Original Type:"+num+typeof num;
+            var str = String(num);
+            document.getElementById("constr").innerText = "Converted String:"+str+typeof str;
+            var numer= Number(num);
+            document.getElementById("connum").innerText = "Converted Number:"+numer+typeof numer;
+            var bol = Boolean(num);
+            document.getElementById("conbol").innerText = "Converted Boolean:"+bol+typeof bol;
+        }
+    </script>
+</head>
+<body>
+    <h2>Type Conversion Page</h2>
+    <label for= "num">Enter a number:</label>
+    <input type="number" id= "num"><br>
+    <button onclick="changeType()">Change</button><br>
+    <p id="typeinput">Original Type:</p>
+    <p id="constr">Converted String:</p>
+    <p id="connum">Converted Number:</p>
+    <p id="conbol">Converted Boolean:</p>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+https://www.w3schools.com/bash/index.php
+
+# 🐧 Basic Linux Commands Cheat Sheet
+
+## 📁 1. **Directory Navigation**
+
+* `pwd` — Show current directory
+
+  ```bash
+  pwd
+  # Output: /home/user
+  ```
+
+* `ls` — List directory contents
+
+  ```bash
+  ls
+  ls -l      # Long listing
+  ls -a      # Show hidden files
+  ```
+
+* `cd` — Change directory
+
+  ```bash
+  cd /home/user/Documents
+  cd ..     # Go up one directory
+  cd ~      # Go to home directory
+  ```
+
+---
+
+## 📄 2. **File Operations**
+
+* `touch` — Create empty file
+
+  ```bash
+  touch file.txt
+  ```
+
+* `cat` — View file contents
+
+  ```bash
+  cat file.txt
+  ```
+
+* `cp` — Copy files/directories
+
+  ```bash
+  cp file1.txt file2.txt
+  cp -r folder1/ folder2/
+  ```
+
+* `mv` — Move or rename
+
+  ```bash
+  mv oldname.txt newname.txt
+  mv file.txt /home/user/Desktop/
+  ```
+
+* `rm` — Delete file/directory
+
+  ```bash
+  rm file.txt
+  rm -r folder/
+  ```
+
+---
+
+## 📦 3. **Installing & Managing Packages (Debian/Ubuntu)**
+
+* `sudo apt update` — Refresh package list
+* `sudo apt install packagename` — Install a package
+* `sudo apt remove packagename` — Uninstall a package
+
+Example:
+
+```bash
+sudo apt install curl
+```
+
+---
+
+## ⚙️ 4. **System Info**
+
+* `uname -a` — Full system info
+* `top` or `htop` — Show running processes
+* `df -h` — Disk usage
+* `free -h` — Memory usage
+
+---
+
+## 👤 5. **User Commands**
+
+* `whoami` — Show current user
+* `id` — Show user ID and groups
+* `adduser username` — Add a new user
+* `passwd username` — Set user password
+
+---
+
+## 🔍 6. **Search & Find**
+
+* `find` — Search for files
+
+  ```bash
+  find /home/user -name "file.txt"
+  ```
+
+* `grep` — Search inside files
+
+  ```bash
+  grep "text" filename.txt
+  grep -r "text" /path/
+  ```
+
+---
+
+## 📜 7. **Permissions**
+
+* `chmod` — Change permissions
+
+  ```bash
+  chmod +x script.sh    # Make script executable
+  chmod 755 file.txt
+  ```
+
+* `chown` — Change ownership
+
+  ```bash
+  sudo chown user:group file.txt
+  ```
+
+---
+
+## 🧰 8. **Others**
+
+* `clear` — Clear terminal screen
+
+* `history` — Show command history
+
+* `man command` — Manual for a command
+
+  ```bash
+  man ls
+  ```
+
+* `exit` — Close terminal session
+
+---
+
+Would you like this note as a downloadable PDF or Markdown file?
+
+
+
+
+## 📂 **Directory & File Management**
+
+* `mkdir` – Create a new directory
+
+  ```bash
+  mkdir myfolder
+  mkdir -p folder1/folder2  # Create nested folders
+  ```
+
+* `rmdir` – Remove an empty directory
+
+  ```bash
+  rmdir myfolder
+  ```
+
+* `tree` – Display directory structure
+
+  ```bash
+  tree
+  ```
+
+---
+
+## 🧾 **File Viewing & Manipulation**
+
+* `head` – Show first 10 lines of a file
+
+  ```bash
+  head file.txt
+  head -n 5 file.txt  # Show first 5 lines
+  ```
+
+* `tail` – Show last 10 lines
+
+  ```bash
+  tail file.txt
+  tail -f file.txt  # Follow live log
+  ```
+
+* `less` – View long files (scrollable)
+
+  ```bash
+  less file.txt
+  ```
+
+* `wc` – Word/line/char count
+
+  ```bash
+  wc file.txt
+  wc -l file.txt  # Count lines
+  ```
+
+---
+
+## 📤 **Compression & Archiving**
+
+* `tar` – Archive files/folders
+
+  ```bash
+  tar -cvf archive.tar folder/
+  tar -xvf archive.tar  # Extract
+  ```
+
+* `gzip` / `gunzip` – Compress and decompress
+
+  ```bash
+  gzip file.txt
+  gunzip file.txt.gz
+  ```
+
+---
+
+## 🔍 **Search & Find**
+
+* `locate` – Quickly find files
+
+  ```bash
+  locate filename.txt
+  ```
+
+* `find` – Flexible file search
+
+  ```bash
+  find / -name "*.log"      # Find .log files
+  find . -type f -size +1M  # Files larger than 1MB
+  ```
+
+* `grep` – Text search in files
+
+  ```bash
+  grep "error" log.txt
+  grep -i "Error" log.txt  # Case-insensitive
+  ```
+
+---
+
+## 🌐 **Networking**
+
+* `ping` – Test network connection
+
+  ```bash
+  ping google.com
+  ```
+
+* `ifconfig` or `ip a` – Show IP addresses
+
+* `netstat -tuln` – Show open ports/services
+
+* `curl` – Transfer data from/to server
+
+  ```bash
+  curl https://example.com
+  ```
+
+* `wget` – Download files
+
+  ```bash
+  wget https://example.com/file.zip
+  ```
+
+---
+
+## 🔧 **System Monitoring & Info**
+
+* `uptime` – Show system uptime
+* `top` – Real-time process viewer
+* `htop` – Enhanced top (if installed)
+* `ps aux` – Show running processes
+* `kill PID` – Kill a process
+
+  ```bash
+  kill 1234
+  kill -9 1234  # Force kill
+  ```
+
+---
+
+## 🔐 **Permissions & Ownership**
+
+* `chmod` – Change file permissions
+
+  ```bash
+  chmod 755 script.sh
+  chmod +x script.sh
+  ```
+
+* `chown` – Change file ownership
+
+  ```bash
+  sudo chown user:group file.txt
+  ```
+
+* `umask` – View/set default permissions
+
+---
+
+## 🧑‍💻 **User & Group Management**
+
+* `who` – Show who is logged in
+
+* `users` – Show active users
+
+* `adduser` – Add a new user
+
+  ```bash
+  sudo adduser newuser
+  ```
+
+* `deluser` – Delete a user
+
+* `groupadd` – Create a group
+
+* `usermod` – Modify a user (e.g., add to group)
+
+  ```bash
+  sudo usermod -aG sudo newuser
+  ```
+
+---
+
+## ⌨️ **Command Shortcuts**
+
+* `!!` – Run last command
+* `!abc` – Run last command starting with `abc`
+* `ctrl + c` – Cancel running command
+* `ctrl + d` – Logout from terminal
+* `ctrl + r` – Reverse search in history
+
+---
+
+## 💾 **Disk & File System**
+
+* `df -h` – Disk usage of mounted filesystems
+* `du -sh folder/` – Size of folder
+* `mount` / `umount` – Mount/unmount devices
+* `lsblk` – List block devices (disks/USBs)
+
+---
+
+## 🧪 **Script Execution & Environment**
+
+* Run a script:
+
+  ```bash
+  ./myscript.sh
+  bash myscript.sh
+  ```
+
+* `env` – Show environment variables
+
+* `export VAR=value` – Set a variable
+
+* `echo $VAR` – Display a variable
+
+---
+

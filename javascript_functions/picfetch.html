@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Image Viewer</title>
+    <script>
+        console.log("start");
+        fetch("https://jsonplaceholder.typicode.com/photos")
+.then(response => response.json())
+.then(data =>{
+    console.log(data);
+	const list=document.getElementById('responsedata');
+	for (let key in data){
+        const item = data[key];
+        const li = document.createElement('li');
+        const img = document.createElement('img');
+        img.src = item.url;
+        img.alt = item.title;
+
+        li.appendChild(img);
+        list.appendChild(li);
+    }
+})
+.catch(err => console.log("Error:", err));  
+ console.log("end");
+    </script>
+</head>
+<body>
+    <ul id = "responsedata"></ul>
+</body>
+</html>
