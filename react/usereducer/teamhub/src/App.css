@@ -1,0 +1,117 @@
+/* App.css */
+
+/* General */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  width: 100%;
+}
+
+/* Navbar */
+nav {
+  width:1000px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #007bff;
+}
+
+nav div:last-child {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Forms */
+form {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  max-width: 400px;
+  margin-top: 1rem;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Events List */
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  transition: box-shadow 0.2s ease;
+}
+
+li:hover {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+/* Popup Form */
+.popup-form {
+  position: fixed;
+  top: 20%;
+  left: 35%;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+/* Headings */
+h2, h3 {
+  margin-top: 0;
+}
+
+code {
+  background: #eee;
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: monospace;
+}
