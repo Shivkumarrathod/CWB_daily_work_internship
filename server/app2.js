@@ -1,13 +1,20 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const tutorialsRouter = require('./router/tutorials.js');
-
+const mongoose = require('mongoose');
+const tutorialRoutes = require('./router/tutorials.js');
 const app = express();
-const PORT = 3000;
 
-app.use(bodyParser.json());
-app.use('/api/tutorials', tutorialsRouter);
+// Middleware
+app.use(express.json());
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+// MongoDB connection
+mongoose.connect('mongodb://localhost:27017/tutorialDB')
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error(err));
+
+// Routes
+app.use('/api/tutorials', tutorialRoutes);
+
+// Start server
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
 });

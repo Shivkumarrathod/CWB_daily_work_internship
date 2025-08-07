@@ -4,6 +4,7 @@
     "cores": "^0.8.5",
     "express": "^5.1.0",
     "http": "^0.0.1-security",
+    "mongoose": "^8.17.0",
     "mysql2": "^3.14.3"
   },
   "name": "cwb",
